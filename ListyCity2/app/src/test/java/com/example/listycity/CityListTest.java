@@ -61,6 +61,7 @@ class CityListTest {
         list.delete(edmonton);
 
         assertFalse(list.hasCity(edmonton));
+        assertEquals(0, list.countCities());
 
     }
 
@@ -70,6 +71,15 @@ class CityListTest {
         City missing = new City("Toronto", "Ontario");
 
         assertThrows(IllegalArgumentException.class, () -> list.delete(missing));
+    }
+
+    @Test
+    void testCountCities() {
+        CityList list = new CityList();
+        assertEquals(0, list.countCities());
+        list.add(new City("Vancouver", "British Columbia"));
+        list.add(new City("Victoria", "British Columbia"));
+        assertEquals(2, list.countCities());
     }
 
 }

@@ -43,6 +43,9 @@ public class CityList {
         }
         return false;
     }
+    public int countCities() {
+        return cities.size();
+    }
 
     private static boolean sameCity(City a, City b) {
         return a.getCityName().equals(b.getCityName())
